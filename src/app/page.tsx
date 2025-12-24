@@ -1,6 +1,9 @@
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { HeroSection } from '@/components/landing/hero-section';
+import { AboutSection } from '@/components/landing/about-section';
+import { MenuHighlightsSection } from '@/components/landing/menu-highlights-section';
+import { TestimonialsSection } from '@/components/landing/testimonials-section';
 
 export default function HomePage() {
   return (
@@ -8,6 +11,9 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         <HeroSection />
+        <AboutSection />
+        <MenuHighlightsSection />
+        <TestimonialsSection />
       </main>
       <Footer />
     </div>
