@@ -37,10 +37,8 @@ export default function CheckoutPage() {
     }
 
     // --- IMPORTANT ---
-    // These are placeholder values. In a real application, you must replace
-    // 'your-upi-id@okhdfcbank' with your actual UPI ID (VPA) and
-    // 'Cafe Elaichi' with your registered business name.
-    const upiId = 'your-upi-id@okhdfcbank';
+    // In a real application, you should also verify the payment on a backend server.
+    const upiId = '7995849217@naviaxis';
     const payeeName = 'Cafe Elaichi';
     const transactionId = `ELAICHI-${Date.now()}`; // Generate a unique ID for each transaction
     const transactionNote = 'Order from Cafe Elaichi';
