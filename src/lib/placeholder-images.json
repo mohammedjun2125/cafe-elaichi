@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "A beautiful, airy cafe interior with plants and natural light",
+      "imageUrl": "https://images.unsplash.com/photo-1613274554329-70f997f5789f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYWZlJTIwaW50ZXJpb3J8ZW58MHx8fHwxNzY2NTU0NzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cafe interior"
+    },
+    {
+      "id": "about-1",
+      "description": "Close up of a barista making latte art",
+      "imageUrl": "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsYXR0ZSUyMGFydHxlbnwwfHx8fDE3NjY1NzI2MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "latte art"
+    },
+    {
+      "id": "menu-1",
+      "description": "A warm cup of Elaichi Chai",
+      "imageUrl": "https://images.unsplash.com/photo-1611312410928-bdcb480e6239?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2hhaSUyMHRlYXxlbnwwfHx8fDE3NjY1OTUwMjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chai tea"
+    },
+    {
+      "id": "menu-2",
+      "description": "A cup of artisanal coffee with latte art",
+      "imageUrl": "https://images.unsplash.com/photo-1579265898841-79c7890d69cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYXR0ZSUyMGFydHxlbnwwfHx8fDE3NjY1NzI2MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "latte art"
+    },
+    {
+      "id": "menu-3",
+      "description": "A refreshing Mango Lassi Smoothie in a tall glass",
+      "imageUrl": "https://images.unsplash.com/photo-1606444005915-37f3022a08e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZnJ1aXQlMjBzbW9vdGhpZXxlbnwwfHx8fDE3NjY1MjE4Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fruit smoothie"
+    },
+    {
+      "id": "menu-4",
+      "description": "A slice of avocado toast with toppings",
+      "imageUrl": "https://images.unsplash.com/photo-1613769049987-b31b641f25b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdm9jYWRvJTIwdG9hc3R8ZW58MHx8fHwxNzY2NTQzMzU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "avocado toast"
+    },
+    {
+      "id": "menu-5",
+      "description": "A platter of crispy samosas",
+      "imageUrl": "https://images.unsplash.com/photo-1625398407796-82650a8c135f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBmb29kfGVufDB8fHx8MTc2NjUwNzI0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian food"
+    },
+    {
+      "id": "menu-6",
+      "description": "A delicious slice of pistachio cake",
+      "imageUrl": "https://images.unsplash.com/photo-1565685715007-06f2c4c44d19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYWtlJTIwc2xpY2V8ZW58MHx8fHwxNzY2NDc0NTA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cake slice"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Wide shot of the cafe's cozy ambiance",
+      "imageUrl": "https://images.unsplash.com/photo-1664135974281-cc4890bd469a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYWZlJTIwYW1iaWFuY2V8ZW58MHx8fHwxNzY2NTU3NjcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cafe ambiance"
+    },
+    {
+      "id": "gallery-2",
+      "description": "A group of friends laughing and enjoying coffee",
+      "imageUrl": "https://images.unsplash.com/photo-1545580140-ab89a0426d37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZW9wbGUlMjBsYXVnaGluZ3xlbnwwfHx8fDE3NjY1OTUwMjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "people laughing"
+    },
+    {
+      "id": "gallery-3",
+      "description": "A display case with fresh pastries and food",
+      "imageUrl": "https://images.unsplash.com/photo-1759928236164-a7f6ca707b7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmb29kJTIwZGlzcGxheXxlbnwwfHx8fDE3NjY1OTUwMjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "food display"
+    },
+    {
+      "id": "gallery-4",
+      "description": "A barista carefully preparing a drink",
+      "imageUrl": "https://images.unsplash.com/photo-1764584503115-3fca2f40700a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYXJpc3RhJTIwd29ya2luZ3xlbnwwfHx8fDE3NjY1NTg2MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "barista working"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Sunny outdoor seating area of the cafe",
+      "imageUrl": "https://images.unsplash.com/photo-1632646332859-7b287c8f2e70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxvdXRkb29yJTIwc2VhdGluZ3xlbnwwfHx8fDE3NjY0OTg3MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "outdoor seating"
+    },
+    {
+      "id": "gallery-6",
+      "description": "A close-up shot of beautiful latte art",
+      "imageUrl": "https://images.unsplash.com/photo-1656038006127-a43dfb57ef20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGF0dGUlMjBjbG9zZXVwfGVufDB8fHx8MTc2NjU5NTAyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "latte closeup"
+    },
+    {
+      "id": "location-map",
+      "description": "A static map showing the location of Cafe Elaichi",
+      "imageUrl": "https://images.unsplash.com/photo-1532154187607-d766ed024aac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYXAlMjBsb2NhdGlvbnxlbnwwfHx8fDE3NjY1OTUwMjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map location"
+    }
+  ]
 }
