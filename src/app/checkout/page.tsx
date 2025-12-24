@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { useCart } from '@/context/cart-context';
@@ -24,7 +24,35 @@ function PaymentIcon({ name }: { name: string }) {
 export default function CheckoutPage() {
   const { cartItems, totalPrice, cartItems: { length: cartItemCount } } = useCart();
   const [selectedPayment, setSelectedPayment] = useState<PaymentMethod | null>(null);
+  const [paymentUrl, setPaymentUrl] = useState('');
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (!selectedPayment) {
+      setPaymentUrl('');
+      return;
+    }
+
+    const upiId = '7995849217@naviaxis';
+    const payeeName = 'Cafe Elaichi';
+    const transactionId = `ELAICHI-${Date.now()}`; // Generate a unique ID for each transaction
+    const transactionNote = 'Order from Cafe Elaichi';
+
+    let url = '';
+    switch (selectedPayment) {
+      case 'gpay':
+        url = `gpay://upi/pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
+        break;
+      case 'phonepe':
+        url = `phonepe://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
+        break;
+      case 'paytm':
+        url = `paytmmp://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
+        break;
+    }
+    setPaymentUrl(url);
+
+  }, [selectedPayment, totalPrice]);
 
   const handlePayment = () => {
     if (!selectedPayment) {
@@ -36,33 +64,11 @@ export default function CheckoutPage() {
       return;
     }
 
-    // --- IMPORTANT ---
-    // In a real application, you should also verify the payment on a backend server.
-    const upiId = '7995849217@naviaxis';
-    const payeeName = 'Cafe Elaichi';
-    const transactionId = `ELAICHI-${Date.now()}`; // Generate a unique ID for each transaction
-    const transactionNote = 'Order from Cafe Elaichi';
-
-    let paymentUrl = '';
-
-    switch (selectedPayment) {
-      case 'gpay':
-        paymentUrl = `gpay://upi/pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
-        break;
-      case 'phonepe':
-        paymentUrl = `phonepe://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
-        break;
-      case 'paytm':
-        paymentUrl = `paytmmp://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
-        break;
+    if (paymentUrl) {
+      // On mobile, this will attempt to open the corresponding payment app.
+      // On desktop, it will likely do nothing.
+      window.location.href = paymentUrl;
     }
-
-    // On mobile, this will attempt to open the corresponding payment app.
-    // On desktop, it will likely do nothing.
-    window.location.href = paymentUrl;
-
-    // You should also have a backend service to verify the payment status
-    // using the transactionId. This part is not implemented here.
   };
 
   return (
@@ -153,7 +159,7 @@ export default function CheckoutPage() {
                              <span className="mt-2 text-sm font-medium">Paytm</span>
                         </Label>
                     </RadioGroup>
-                    <Button size="lg" className="w-full" onClick={handlePayment}>Pay Now</Button>
+                    <Button size="lg" className="w-full" onClick={handlePayment} disabled={!selectedPayment}>Pay Now</Button>
                 </CardFooter>
               )}
             </Card>
