@@ -49,6 +49,78 @@
       "imageHint": "cake slice"
     },
     {
+      "id": "menu-7",
+      "description": "A cup of masala chai",
+      "imageUrl": "https://images.unsplash.com/photo-1619581073186-5b4ae1b0caad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYXNhbGElMjBjaGFpfGVufDB8fHx8MTc2NjU0Mzk1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "masala chai"
+    },
+    {
+      "id": "menu-8",
+      "description": "A cup of ginger tea",
+      "imageUrl": "https://images.unsplash.com/photo-1610450622827-195cb7308af8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnaW5nZXIlMjB0ZWF8ZW58MHx8fHwxNzY2NTU5MjA3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ginger tea"
+    },
+    {
+      "id": "menu-9",
+      "description": "A shot of espresso",
+      "imageUrl": "https://images.unsplash.com/photo-1627398621538-918a69017d28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZXNwcmVzc28lMjBzaG90fGVufDB8fHx8MTc2NjQ5NzEyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "espresso shot"
+    },
+    {
+      "id": "menu-10",
+      "description": "A cup of cappuccino",
+      "imageUrl": "https://images.unsplash.com/photo-1721763368544-7549a9797676?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXBwdWNjaW5vJTIwY3VwfGVufDB8fHx8MTc2NjQ5NzEyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cappuccino cup"
+    },
+    {
+      "id": "menu-11",
+      "description": "A margherita pizza",
+      "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYXJnaGVyaXRhJTIwcGl6emF8ZW58MHx8fHwxNzY2NTQ4NDk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "margherita pizza"
+    },
+    {
+      "id": "menu-12",
+      "description": "A pepperoni pizza",
+      "imageUrl": "https://images.unsplash.com/photo-1628840042765-356cda07504e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXBwZXJvbmklMjBwaXp6YXxlbnwwfHx8fDE3NjY1MTk0ODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pepperoni pizza"
+    },
+    {
+      "id": "menu-13",
+      "description": "A veggie pizza",
+      "imageUrl": "https://images.unsplash.com/photo-1617119815789-67ed56c65984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dmVnZ2llJTIwcGl6emF8ZW58MHx8fHwxNzY2NTk1NTYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "veggie pizza"
+    },
+    {
+      "id": "menu-14",
+      "description": "A glass of fresh juice",
+      "imageUrl": "https://images.unsplash.com/photo-1658215248706-52550a0b1ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcmVzaCUyMGp1aWNlfGVufDB8fHx8MTc2NjU5NTU2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh juice"
+    },
+    {
+      "id": "menu-15",
+      "description": "A glass of iced tea",
+      "imageUrl": "https://images.unsplash.com/photo-1470752354724-60a1d2b1907f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxpY2VkJTIwdGVhfGVufDB8fHx8MTc2NjU5NTU2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "iced tea"
+    },
+    {
+      "id": "menu-16",
+      "description": "A plate of penne alfredo",
+      "imageUrl": "https://images.unsplash.com/photo-1693609929783-f6a1cfd35b41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhbGZyZWRvJTIwcGFzdGF8ZW58MHx8fHwxNzY2NTIwNTA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "alfredo pasta"
+    },
+    {
+      "id": "menu-17",
+      "description": "A plate of spaghetti bolognese",
+      "imageUrl": "https://images.unsplash.com/photo-1692071097529-320eb2b32292?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3BhZ2hldHRpJTIwYm9sb2duZXNlfGVufDB8fHx8MTc2NjUxOTQ4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spaghetti bolognese"
+    },
+    {
+      "id": "menu-18",
+      "description": "A plate of pesto pasta",
+      "imageUrl": "https://images.unsplash.com/photo-1743352388509-835796029c79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXN0byUyMHBhc3RhfGVufDB8fHx8MTc2NjU5NTU2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pesto pasta"
+    },
+    {
       "id": "gallery-1",
       "description": "Wide shot of the cafe's cozy ambiance",
       "imageUrl": "https://images.unsplash.com/photo-1664135974281-cc4890bd469a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYWZlJTIwYW1iaWFuY2V8ZW58MHx8fHwxNzY2NTU3NjcwfDA&ixlib=rb-4.1.0&q=80&w=1080",

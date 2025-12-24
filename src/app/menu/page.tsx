@@ -7,7 +7,7 @@ export default function MenuPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <MenuHighlightsSection />
+        <MenuHighlightsSection isMenuPage={true} />
       </main>
       <Footer />
     </div>
