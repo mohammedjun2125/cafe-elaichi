@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
@@ -38,7 +38,7 @@ const initialState = {
 
 export function ReservationForm() {
   const { toast } = useToast();
-  const [state, formAction] = useFormState(submitReservation, initialState);
+  const [state, formAction] = useActionState(submitReservation, initialState);
 
   const form = useForm<ReservationFormValues>({
     resolver: zodResolver(reservationSchema),
