@@ -1,13 +1,19 @@
-
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { useCart } from '@/context/cart-context';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
+
+type PaymentMethod = 'gpay' | 'phonepe' | 'paytm';
 
 function PaymentIcon({ name }: { name: string }) {
     // In a real app, you'd use actual icons.
@@ -17,6 +23,49 @@ function PaymentIcon({ name }: { name: string }) {
 
 export default function CheckoutPage() {
   const { cartItems, totalPrice, cartItems: { length: cartItemCount } } = useCart();
+  const [selectedPayment, setSelectedPayment] = useState<PaymentMethod | null>(null);
+  const { toast } = useToast();
+
+  const handlePayment = () => {
+    if (!selectedPayment) {
+      toast({
+        variant: "destructive",
+        title: "No payment method selected",
+        description: "Please choose a payment method to proceed.",
+      });
+      return;
+    }
+
+    // --- IMPORTANT ---
+    // These are placeholder values. In a real application, you must replace
+    // 'your-upi-id@okhdfcbank' with your actual UPI ID (VPA) and
+    // 'Cafe Elaichi' with your registered business name.
+    const upiId = 'your-upi-id@okhdfcbank';
+    const payeeName = 'Cafe Elaichi';
+    const transactionId = `ELAICHI-${Date.now()}`; // Generate a unique ID for each transaction
+    const transactionNote = 'Order from Cafe Elaichi';
+
+    let paymentUrl = '';
+
+    switch (selectedPayment) {
+      case 'gpay':
+        paymentUrl = `gpay://upi/pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
+        break;
+      case 'phonepe':
+        paymentUrl = `phonepe://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
+        break;
+      case 'paytm':
+        paymentUrl = `paytmmp://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
+        break;
+    }
+
+    // On mobile, this will attempt to open the corresponding payment app.
+    // On desktop, it will likely do nothing.
+    window.location.href = paymentUrl;
+
+    // You should also have a backend service to verify the payment status
+    // using the transactionId. This part is not implemented here.
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-secondary/50">
@@ -76,21 +125,37 @@ export default function CheckoutPage() {
               {cartItemCount > 0 && (
                 <CardFooter className="flex-col items-stretch gap-4">
                     <p className="text-center text-sm text-muted-foreground">Choose a payment method</p>
-                    <div className="grid grid-cols-3 gap-4">
-                        <Button variant="outline" className="h-20 flex-col gap-2">
-                             <PaymentIcon name="GPay" />
-                             <span>Google Pay</span>
-                        </Button>
-                         <Button variant="outline" className="h-20 flex-col gap-2">
+                    <RadioGroup 
+                        value={selectedPayment || ''} 
+                        onValueChange={(value) => setSelectedPayment(value as PaymentMethod)}
+                        className="grid grid-cols-3 gap-4"
+                    >
+                        <Label htmlFor="gpay" className={cn(
+                            "flex flex-col items-center justify-center rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground cursor-pointer",
+                            selectedPayment === 'gpay' && "border-primary"
+                        )}>
+                            <RadioGroupItem value="gpay" id="gpay" className="sr-only" />
+                            <PaymentIcon name="GPay" />
+                            <span className="mt-2 text-sm font-medium">Google Pay</span>
+                        </Label>
+                        <Label htmlFor="phonepe" className={cn(
+                            "flex flex-col items-center justify-center rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground cursor-pointer",
+                             selectedPayment === 'phonepe' && "border-primary"
+                        )}>
+                            <RadioGroupItem value="phonepe" id="phonepe" className="sr-only" />
                              <PaymentIcon name="PP" />
-                             <span>PhonePe</span>
-                        </Button>
-                         <Button variant="outline" className="h-20 flex-col gap-2">
+                             <span className="mt-2 text-sm font-medium">PhonePe</span>
+                        </Label>
+                        <Label htmlFor="paytm" className={cn(
+                            "flex flex-col items-center justify-center rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground cursor-pointer",
+                             selectedPayment === 'paytm' && "border-primary"
+                        )}>
+                            <RadioGroupItem value="paytm" id="paytm" className="sr-only" />
                              <PaymentIcon name="Paytm" />
-                             <span>Paytm</span>
-                        </Button>
-                    </div>
-                    <Button size="lg" className="w-full">Pay Now</Button>
+                             <span className="mt-2 text-sm font-medium">Paytm</span>
+                        </Label>
+                    </RadioGroup>
+                    <Button size="lg" className="w-full" onClick={handlePayment}>Pay Now</Button>
                 </CardFooter>
               )}
             </Card>
