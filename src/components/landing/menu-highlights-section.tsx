@@ -9,52 +9,52 @@ const menuCategories = [
   {
     name: "Chai",
     items: [
-      { id: "menu-1", name: "Elaichi Chai", description: "Our classic spiced cardamom tea.", price: "4.50", imageHint: "chai tea" },
-      { id: "menu-7", name: "Masala Chai", description: "Traditional spiced milk tea.", price: "4.75", imageHint: "masala chai" },
-      { id: "menu-8", name: "Ginger Chai", description: "Zesty and warming ginger-infused tea.", price: "4.75", imageHint: "ginger tea" },
+      { id: "menu-1", name: "Elaichi Chai", description: "Our classic spiced cardamom tea.", price: "150", imageHint: "chai tea" },
+      { id: "menu-7", name: "Masala Chai", description: "Traditional spiced milk tea.", price: "160", imageHint: "masala chai" },
+      { id: "menu-8", name: "Ginger Chai", description: "Zesty and warming ginger-infused tea.", price: "160", imageHint: "ginger tea" },
     ]
   },
   {
     name: "Coffee",
     items: [
-      { id: "menu-2", name: "Artisanal Coffee", description: "Rich, aromatic, single-origin beans.", price: "5.00", imageHint: "latte art" },
-      { id: "menu-9", name: "Espresso", description: "A strong and bold shot of coffee.", price: "3.50", imageHint: "espresso shot" },
-      { id: "menu-10", name: "Cappuccino", description: "Espresso with steamed milk foam.", price: "5.50", imageHint: "cappuccino cup" },
+      { id: "menu-2", name: "Artisanal Coffee", description: "Rich, aromatic, single-origin beans.", price: "180", imageHint: "latte art" },
+      { id: "menu-9", name: "Espresso", description: "A strong and bold shot of coffee.", price: "120", imageHint: "espresso shot" },
+      { id: "menu-10", name: "Cappuccino", description: "Espresso with steamed milk foam.", price: "200", imageHint: "cappuccino cup" },
     ]
   },
   {
     name: "Pizza",
     items: [
-      { id: "menu-11", name: "Margherita Pizza", description: "Classic tomato, mozzarella, and basil.", price: "12.00", imageHint: "margherita pizza" },
-      { id: "menu-12", name: "Pepperoni Pizza", description: "A crowd-pleasing favorite.", price: "14.00", imageHint: "pepperoni pizza" },
-      { id: "menu-13", name: "Veggie Pizza", description: "Loaded with fresh vegetables.", price: "13.00", imageHint: "veggie pizza" },
+      { id: "menu-11", name: "Margherita Pizza", description: "Classic tomato, mozzarella, and basil.", price: "450", imageHint: "margherita pizza" },
+      { id: "menu-12", name: "Pepperoni Pizza", description: "A crowd-pleasing favorite.", price: "550", imageHint: "pepperoni pizza" },
+      { id: "menu-13", name: "Veggie Pizza", description: "Loaded with fresh vegetables.", price: "500", imageHint: "veggie pizza" },
     ]
   },
   {
     name: "Drinks",
     items: [
-       { id: "menu-3", name: "Mango Lassi Smoothie", description: "A creamy yogurt and mango blend.", price: "6.00", imageHint: "fruit smoothie" },
-       { id: "menu-14", name: "Fresh Juice", description: "Seasonal fresh-pressed juice.", price: "5.50", imageHint: "fresh juice" },
-       { id: "menu-15", name: "Iced Tea", description: "Refreshing and cool.", price: "4.00", imageHint: "iced tea" },
+       { id: "menu-3", name: "Mango Lassi Smoothie", description: "A creamy yogurt and mango blend.", price: "220", imageHint: "fruit smoothie" },
+       { id: "menu-14", name: "Fresh Juice", description: "Seasonal fresh-pressed juice.", price: "180", imageHint: "fresh juice" },
+       { id: "menu-15", name: "Iced Tea", description: "Refreshing and cool.", price: "140", imageHint: "iced tea" },
     ]
   },
   {
     name: "Pastas",
     items: [
-      { id: "menu-16", name: "Penne Alfredo", description: "Creamy white sauce pasta.", price: "15.00", imageHint: "alfredo pasta" },
-      { id: "menu-17", name: "Spaghetti Bolognese", description: "Rich meat sauce with spaghetti.", price: "16.00", imageHint: "spaghetti bolognese" },
-      { id: "menu-18", name: "Pesto Pasta", description: "Basil pesto with pine nuts.", price: "14.50", imageHint: "pesto pasta" },
+      { id: "menu-16", name: "Penne Alfredo", description: "Creamy white sauce pasta.", price: "400", imageHint: "alfredo pasta" },
+      { id: "menu-17", name: "Spaghetti Bolognese", description: "Rich meat sauce with spaghetti.", price: "450", imageHint: "spaghetti bolognese" },
+      { id: "menu-18", name: "Pesto Pasta", description: "Basil pesto with pine nuts.", price: "420", imageHint: "pesto pasta" },
     ]
   }
 ];
 
 const menuHighlights = [
-  { id: "menu-1", category: "Signature Drinks", name: "Elaichi Chai", description: "Our classic spiced cardamom tea.", price: "4.50", imageHint: "chai tea" },
-  { id: "menu-2", category: "Signature Drinks", name: "Artisanal Coffee", description: "Rich, aromatic, single-origin beans.", price: "5.00", imageHint: "latte art" },
-  { id: "menu-3", category: "Signature Drinks", name: "Mango Lassi Smoothie", description: "A creamy yogurt and mango blend.", price: "6.00", imageHint: "fruit smoothie" },
-  { id: "menu-4", category: "Snacks & Light Bites", name: "Avocado Toast", description: "Smashed avocado on sourdough.", price: "8.50", imageHint: "avocado toast" },
-  { id: "menu-5", category: "Snacks & Light Bites", name: "Samosa Platter", description: "Crispy pastries with savory filling.", price: "7.00", imageHint: "indian food" },
-  { id: "menu-6", category: "Desserts & Specials", name: "Pistachio Cake", description: "A slice of heaven with rose icing.", price: "6.50", imageHint: "cake slice" },
+  { id: "menu-1", category: "Signature Drinks", name: "Elaichi Chai", description: "Our classic spiced cardamom tea.", price: "150", imageHint: "chai tea" },
+  { id: "menu-2", category: "Signature Drinks", name: "Artisanal Coffee", description: "Rich, aromatic, single-origin beans.", price: "180", imageHint: "latte art" },
+  { id: "menu-3", category: "Signature Drinks", name: "Mango Lassi Smoothie", description: "A creamy yogurt and mango blend.", price: "220", imageHint: "fruit smoothie" },
+  { id: "menu-4", category: "Snacks & Light Bites", name: "Avocado Toast", description: "Smashed avocado on sourdough.", price: "300", imageHint: "avocado toast" },
+  { id: "menu-5", category: "Snacks & Light Bites", name: "Samosa Platter", description: "Crispy pastries with savory filling.", price: "250", imageHint: "indian food" },
+  { id: "menu-6", category: "Desserts & Specials", name: "Pistachio Cake", description: "A slice of heaven with rose icing.", price: "280", imageHint: "cake slice" },
 ];
 
 
@@ -115,7 +115,7 @@ export function MenuHighlightsSection({ isMenuPage = false }: { isMenuPage?: boo
                         </CardHeader>
                         <CardContent className="flex-grow" />
                         <CardFooter className="flex justify-between items-center">
-                            <span className="text-lg font-semibold text-primary">${item.price}</span>
+                            <span className="text-lg font-semibold text-primary">₹{item.price}</span>
                             <Button variant="ghost">Add to Order</Button>
                         </CardFooter>
                         </Card>
@@ -168,7 +168,7 @@ export function MenuHighlightsSection({ isMenuPage = false }: { isMenuPage?: boo
               </CardHeader>
               <CardContent className="flex-grow" />
               <CardFooter className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-primary">${item.price}</span>
+                <span className="text-lg font-semibold text-primary">₹{item.price}</span>
                 <Button variant="ghost">Add to Order</Button>
               </CardFooter>
             </Card>
