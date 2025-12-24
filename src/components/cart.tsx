@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "@/context/cart-context";
 import { Button } from "@/components/ui/button";
-import { SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
+import { SheetHeader, SheetTitle, SheetFooter, SheetClose } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
@@ -82,7 +83,11 @@ export function Cart() {
               <span>Total</span>
               <span>₹{totalPrice.toFixed(2)}</span>
             </div>
-            <Button className="w-full mt-4">Proceed to Checkout</Button>
+            <SheetClose asChild>
+                <Button asChild className="w-full mt-4">
+                    <Link href="/checkout">Proceed to Checkout</Link>
+                </Button>
+            </SheetClose>
             <Button variant="outline" className="w-full mt-2" onClick={clearCart}>
                 Clear Cart
             </Button>
