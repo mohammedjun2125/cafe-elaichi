@@ -12,6 +12,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 type PaymentMethod = 'gpay' | 'phonepe' | 'paytm';
 
@@ -38,7 +39,7 @@ export default function CheckoutPage() {
     const transactionId = `ELAICHI-${Date.now()}`; // Generate a unique ID for each transaction
     const transactionNote = 'Order from Cafe Elaichi';
 
-    let url = '';
+    let url = '#';
     switch (selectedPayment) {
       case 'gpay':
         url = `gpay://upi/pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&tr=${transactionId}&tn=${encodeURIComponent(transactionNote)}&am=${totalPrice.toFixed(2)}&cu=INR`;
@@ -54,20 +55,13 @@ export default function CheckoutPage() {
 
   }, [selectedPayment, totalPrice]);
 
-  const handlePayment = () => {
+  const handlePaymentClick = () => {
     if (!selectedPayment) {
       toast({
         variant: "destructive",
         title: "No payment method selected",
         description: "Please choose a payment method to proceed.",
       });
-      return;
-    }
-
-    if (paymentUrl) {
-      // On mobile, this will attempt to open the corresponding payment app.
-      // On desktop, it will likely do nothing.
-      window.location.href = paymentUrl;
     }
   };
 
@@ -159,7 +153,11 @@ export default function CheckoutPage() {
                              <span className="mt-2 text-sm font-medium">Paytm</span>
                         </Label>
                     </RadioGroup>
-                    <Button size="lg" className="w-full" onClick={handlePayment} disabled={!selectedPayment}>Pay Now</Button>
+                    <Button asChild size="lg" className="w-full" disabled={!selectedPayment}>
+                      <Link href={paymentUrl} onClick={handlePaymentClick} >
+                        Pay Now
+                      </Link>
+                    </Button>
                 </CardFooter>
               )}
             </Card>
