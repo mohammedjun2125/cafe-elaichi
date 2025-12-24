@@ -3,12 +3,12 @@ import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const footerNavs = [
-  { href: "#home", name: "Home" },
-  { href: "#menu", name: "Menu" },
-  { href: "#about", name: "About" },
-  { href: "#gallery", name: "Gallery" },
-  { href: "#contact", name: "Contact" },
-  { href: "#reservations", name: "Reservations" },
+  { href: "/", name: "Home" },
+  { href: "/menu", name: "Menu" },
+  { href: "/about", name: "About" },
+  { href: "/gallery", name: "Gallery" },
+  { href: "/contact", name: "Contact" },
+  { href: "/contact#reservations", name: "Reservations" },
 ];
 
 const socialLinks = [

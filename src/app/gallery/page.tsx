@@ -1,13 +1,13 @@
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { HeroSection } from '@/components/landing/hero-section';
+import { GallerySection } from '@/components/landing/gallery-section';
 
-export default function HomePage() {
+export default function GalleryPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <HeroSection />
+        <GallerySection />
       </main>
       <Footer />
     </div>

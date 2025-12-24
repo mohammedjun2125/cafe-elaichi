@@ -1,13 +1,13 @@
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { HeroSection } from '@/components/landing/hero-section';
+import { MenuHighlightsSection } from '@/components/landing/menu-highlights-section';
 
-export default function HomePage() {
+export default function MenuPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <HeroSection />
+        <MenuHighlightsSection />
       </main>
       <Footer />
     </div>
