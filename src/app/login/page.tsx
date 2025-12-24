@@ -92,7 +92,7 @@ export default function LoginPage() {
           <Button
             className="w-full"
             onClick={handleSignIn}
-            disabled={loading}
+            disabled={loading || !auth}
           >
             <GoogleIcon className="mr-2" />
             Sign in with Google
