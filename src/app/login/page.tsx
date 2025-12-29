@@ -24,6 +24,7 @@ import { useToast } from '@/hooks/use-toast';
 declare global {
   interface Window {
     recaptchaVerifier?: RecaptchaVerifier;
+    grecaptcha?: any;
   }
 }
 
@@ -47,18 +48,28 @@ export default function LoginPage() {
 
   const setupRecaptcha = () => {
     if (!auth) return;
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        'recaptcha-container',
-        {
-          size: 'invisible',
-          callback: () => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
-          },
-        }
-      );
+    // Cleanup previous verifier if it exists
+    if (window.recaptchaVerifier) {
+      window.recaptchaVerifier.clear();
     }
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      auth,
+      'recaptcha-container',
+      {
+        size: 'invisible',
+        callback: () => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+        },
+        'expired-callback': () => {
+            // Reset reCAPTCHA
+            toast({
+              title: "reCAPTCHA expired",
+              description: "Please try sending the OTP again.",
+              variant: "destructive"
+            });
+        }
+      }
+    );
   };
 
   const handleSendOtp = async () => {
@@ -70,11 +81,13 @@ export default function LoginPage() {
       });
       return;
     }
-    if (!/^\+[1-9]\d{1,14}$/.test(phoneNumber)) {
+    
+    const fullPhoneNumber = `+91${phoneNumber}`;
+    if (!/^\+91[6-9]\d{9}$/.test(fullPhoneNumber)) {
         toast({
             variant: "destructive",
             title: "Invalid Phone Number",
-            description: "Please enter a valid phone number with country code (e.g., +919876543210).",
+            description: "Please enter a valid 10-digit Indian mobile number.",
         });
         return;
     }
@@ -84,24 +97,23 @@ export default function LoginPage() {
     const appVerifier = window.recaptchaVerifier!;
 
     try {
-      const result = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      const result = await signInWithPhoneNumber(auth, fullPhoneNumber, appVerifier);
       setConfirmationResult(result);
       toast({
         title: 'OTP Sent',
-        description: 'Please check your phone for the verification code.',
+        description: `A verification code has been sent to ${fullPhoneNumber}.`,
       });
     } catch (error) {
       console.error('Error sending OTP', error);
       toast({
         variant: 'destructive',
-        title: 'Error',
+        title: 'Error Sending OTP',
         description:
-          'Could not send OTP. Please check the phone number or try again.',
+          'Could not send OTP. Please check the number or try again later.',
       });
-       // Reset reCAPTCHA so user can try again
+      // Reset reCAPTCHA so user can try again
       if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.render().then(widgetId => {
-          // @ts-ignore
+        window.recaptchaVerifier.render().then((widgetId: any) => {
           window.grecaptcha.reset(widgetId);
         });
       }
@@ -119,7 +131,7 @@ export default function LoginPage() {
       });
       return;
     }
-    if (otp.length !== 6) {
+    if (otp.length !== 6 || !/^\d{6}$/.test(otp)) {
         toast({
             variant: "destructive",
             title: "Invalid OTP",
@@ -147,6 +159,16 @@ export default function LoginPage() {
       setIsSubmitting(false);
     }
   };
+  
+  const resetFlow = () => {
+    setConfirmationResult(null);
+    setPhoneNumber('');
+    setOtp('');
+    if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+    }
+  }
+
 
   if (loading) {
     return (
@@ -168,7 +190,7 @@ export default function LoginPage() {
           <CardDescription>
             {confirmationResult
               ? 'Enter the OTP sent to your phone.'
-              : 'Sign in with your phone number.'}
+              : 'Sign in with your 10-digit Indian phone number.'}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -176,14 +198,21 @@ export default function LoginPage() {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="+91 98765 43210"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  disabled={isSubmitting}
-                />
+                <div className="flex items-center gap-2">
+                    <div className="flex h-10 w-auto items-center justify-center rounded-md border border-input bg-background px-3">
+                        <span className="text-sm text-muted-foreground">+91</span>
+                    </div>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="98765 43210"
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ''))}
+                      maxLength={10}
+                      disabled={isSubmitting}
+                      className="flex-1"
+                    />
+                </div>
               </div>
               <Button
                 onClick={handleSendOtp}
@@ -199,11 +228,11 @@ export default function LoginPage() {
                 <Label htmlFor="otp">One-Time Password</Label>
                 <Input
                   id="otp"
-                  type="text"
+                  type="tel"
                   maxLength={6}
                   placeholder="123456"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
+                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                   disabled={isSubmitting}
                 />
               </div>
@@ -218,11 +247,7 @@ export default function LoginPage() {
                 variant="link"
                 size="sm"
                 className="w-full"
-                onClick={() => {
-                  setConfirmationResult(null);
-                  setPhoneNumber('');
-                  setOtp('');
-                }}
+                onClick={resetFlow}
                 disabled={isSubmitting}
               >
                 Use a different number
