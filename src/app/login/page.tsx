@@ -112,10 +112,8 @@ export default function LoginPage() {
           'Could not send OTP. Please check the number or try again later.',
       });
       // Reset reCAPTCHA so user can try again
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.render().then((widgetId: any) => {
-          window.grecaptcha.reset(widgetId);
-        });
+      if (window.grecaptcha && window.recaptchaVerifier) {
+        window.grecaptcha.reset(window.recaptchaVerifier.widgetId);
       }
     } finally {
       setIsSubmitting(false);
